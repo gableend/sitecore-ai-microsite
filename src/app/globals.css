@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Sitecore Core Colors */
+    --sitecore-red: 0 77% 59%; /* #FF3B30 */
+    --sitecore-deep-red: 338 100% 46%; /* #EB004A */
+    --sitecore-ultra-violet: 250 100% 34%; /* #3400AD */
+
+    /* Sitecore Secondary Colors */
+    --sitecore-purple: 261 100% 58%; /* #862CFF */
+    --sitecore-sky: 198 100% 50%; /* #00AEFF */
+    --sitecore-pink: 300 100% 69%; /* #FF62FF */
+    --sitecore-blue: 240 100% 25%; /* #00007D */
+
+    /* Sitecore Neutral Colors */
+    --sitecore-black: 240 6% 11%; /* #1C1C22 */
+    --sitecore-gray-46: 262 4% 48%; /* #7A767B */
+    --sitecore-gray-76: 218 21% 71%; /* #C1C8D7 */
+    --sitecore-gray-84: 196 16% 85%; /* #D8DDE1 */
+    --sitecore-gray-90: 184 15% 90%; /* #E4EAEB */
+    --sitecore-gray-95: 294 14% 95%; /* #F3F0F3 */
+    --sitecore-gray-98: 289 24% 98%; /* #F9F4FA */
+    --sitecore-white: 0 0% 100%; /* #FFFFFF */
+
+    /* Theme Variables */
+    --background: var(--sitecore-black);
+    --foreground: var(--sitecore-white);
+    --card: var(--sitecore-black);
+    --card-foreground: var(--sitecore-white);
+    --popover: var(--sitecore-black);
+    --popover-foreground: var(--sitecore-white);
+    --primary: var(--sitecore-ultra-violet);
+    --primary-foreground: var(--sitecore-white);
+    --secondary: var(--sitecore-purple);
+    --secondary-foreground: var(--sitecore-white);
+    --muted: var(--sitecore-gray-46);
+    --muted-foreground: var(--sitecore-gray-76);
+    --accent: var(--sitecore-red);
+    --accent-foreground: var(--sitecore-white);
+    --destructive: var(--sitecore-deep-red);
+    --destructive-foreground: var(--sitecore-white);
+    --border: var(--sitecore-gray-46);
+    --input: var(--sitecore-gray-46);
+    --ring: var(--sitecore-ultra-violet);
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-big {
+    background: linear-gradient(135deg, hsl(var(--sitecore-ultra-violet)), hsl(var(--sitecore-purple)), hsl(var(--sitecore-pink)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--sitecore-ultra-violet)) 0%, hsl(var(--sitecore-purple)) 50%, hsl(var(--sitecore-pink)) 100%);
+  }
+
+  .hero-gradient {
+    background: radial-gradient(ellipse at center, hsl(var(--sitecore-ultra-violet) / 0.3) 0%, transparent 70%),
+                linear-gradient(180deg, hsl(var(--sitecore-black)) 0%, hsl(var(--sitecore-black)) 100%);
+  }
+
+  .countdown-shrink {
+    animation: shrinkToHeader 2s ease-in-out forwards;
+  }
+
+  @keyframes shrinkToHeader {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
